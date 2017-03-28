@@ -1,0 +1,15 @@
+# Ignore special files.
+*~
+.*
+
+# Ignore python cache files.
+__pycache__
+
+# Ignore local logs and settings.
+logs/*
+settings/local.py
+
+# Keep this .gitignore and .gitkeep files. .gitkeep used for committing empty
+# directories, when defining repository structure.
+!.gitignore
+!.gitkeep
