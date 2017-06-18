@@ -1,20 +1,28 @@
+from gettext import gettext as _
 
 import sqlalchemy as sa
-from sqlalchemy.ext.declarative import declarative_base, declared_attr
+from sqlalchemy.orm import relationship
 
-Base = declarative_base()
-
-__all__ = ('Account',)
+from virtualspace.models.base import BaseModel
 
 
-class Account(Base):
+class Account(BaseModel):
+    __abstract__ = False
 
-    @declared_attr
-    def __tablename__(self):
-        return self.__name__.lower()
+    role_id = sa.Column(
+        sa.Integer,
+        sa.ForeignKey('role.id'),
+        info={'verbose_name': _('role')}
+    )
 
-    id = sa.Column(sa.Integer(), primary_key=True)
+    is_active = sa.Column(sa.Boolean, nullable=False, default=True, info={'verbose_name': _('is active')})
 
+    nickname = sa.Column(sa.Unicode(128), nullable=False, info={'verbose_name': _('nickname')})
+    email = sa.Column(sa.Unicode(128), nullable=False, info={'verbose_name': _('email')})
+    password = sa.Column(sa.Unicode(128), nullable=False, info={'verbose_name': _('password')})
 
-a = Account()
-a.__class__.__name__.lower()
+    first_name = sa.Column(sa.Unicode(128), info={'verbose_name': _('first name')})
+    patr_name = sa.Column(sa.Unicode(128), info={'verbose_name': _('patr name')})
+    last_name = sa.Column(sa.Unicode(128), info={'verbose_name': _('last name')})
+
+    role = relationship('Role', backref='accounts')
