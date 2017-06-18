@@ -1,0 +1,65 @@
+from gettext import gettext as _
+
+import sqlalchemy as sa
+
+from virtualspace.models.base import BaseModel
+
+
+class ProductTriplet(BaseModel):
+    __abstract__ = False
+
+    product_id = sa.Column(
+        sa.Integer,
+        sa.ForeignKey('product.id'),
+        info={'verbose_name': _('product')}
+    )
+    triplet_id = sa.Column(
+        sa.Integer,
+        sa.ForeignKey('triplet.id'),
+        info={'verbose_name': _('triplet')}
+    )
+
+
+class UnitTriplet(BaseModel):
+    __abstract__ = False
+
+    unit_id = sa.Column(
+        sa.Integer,
+        sa.ForeignKey('unit.id'),
+        info={'verbose_name': _('unit')}
+    )
+    triplet_id = sa.Column(
+        sa.Integer,
+        sa.ForeignKey('triplet.id'),
+        info={'verbose_name': _('triplet')}
+    )
+
+
+class SubunitTriplet(BaseModel):
+    __abstract__ = False
+
+    subunit_id = sa.Column(
+        sa.Integer,
+        sa.ForeignKey('subunit.id'),
+        info={'verbose_name': _('subunit')}
+    )
+    triplet_id = sa.Column(
+        sa.Integer,
+        sa.ForeignKey('triplet.id'),
+        info={'verbose_name': _('triplet')}
+    )
+
+
+class DetailTriplet(BaseModel):
+    __abstract__ = False
+
+    detail_id = sa.Column(
+        sa.Integer,
+        sa.ForeignKey('detail.id'),
+        info={'verbose_name': _('detail')}
+    )
+    triplet_id = sa.Column(
+        sa.Integer,
+        sa.ForeignKey('triplet.id'),
+        info={'verbose_name': _('triplet')}
+    )
