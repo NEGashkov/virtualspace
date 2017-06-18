@@ -12,7 +12,7 @@ log = logging.getLogger(__name__)
 
 try:
     from virtualspace import models
-    from virtualspace.models.base import VsDeclarativeBase
+    from virtualspace.models.base import BaseModel
 except ImportError as e:
     log.debug(e)
 
@@ -21,7 +21,7 @@ except ImportError as e:
     sys.path.append(root)
 
     from virtualspace import models
-    from virtualspace.models.base import VsDeclarativeBase
+    from virtualspace.models.base import BaseModel
 
 
 USE_TWOPHASE = False
@@ -42,7 +42,7 @@ def get_all_models_metadata():
     metadata = list()
 
     for name, class_ in inspect.getmembers(models):
-        if inspect.isclass(class_) and issubclass(class_, VsDeclarativeBase):
+        if inspect.isclass(class_) and issubclass(class_, BaseModel):
             metadata.append(class_.metadata)
 
     return metadata
