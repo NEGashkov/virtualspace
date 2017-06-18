@@ -12,6 +12,7 @@ log = logging.getLogger(__name__)
 
 try:
     from virtualspace import models
+    from virtualspace.models.base import VsDeclarativeBase
 except ImportError as e:
     log.debug(e)
 
@@ -20,6 +21,7 @@ except ImportError as e:
     sys.path.append(root)
 
     from virtualspace import models
+    from virtualspace.models.base import VsDeclarativeBase
 
 
 USE_TWOPHASE = False
@@ -37,7 +39,13 @@ config.set_section_option('test', 'url', 'postgres+psycopg2://vs_test:test@local
 
 
 def get_all_models_metadata():
-    return [model.metadata for _, model in inspect.getmembers(models) if inspect.isclass(model)]
+    metadata = list()
+
+    for name, class_ in inspect.getmembers(models):
+        if inspect.isclass(class_) and issubclass(class_, VsDeclarativeBase):
+            metadata.append(class_.metadata)
+
+    return metadata
 
 
 def combine_metadata(*args):
