@@ -1,6 +1,7 @@
 from gettext import gettext as _
 
 import sqlalchemy as sa
+from sqlalchemy.orm import relationship
 
 from virtualspace.models.base import BaseModel
 
@@ -19,6 +20,9 @@ class ProductTriplet(BaseModel):
         info={'verbose_name': _('triplet')}
     )
 
+    product = relationship('Product', backref='triplets')
+    triplet = relationship('Triplet', backref='products')
+
 
 class UnitTriplet(BaseModel):
     __abstract__ = False
@@ -33,6 +37,9 @@ class UnitTriplet(BaseModel):
         sa.ForeignKey('triplet.id'),
         info={'verbose_name': _('triplet')}
     )
+
+    unit = relationship('Unit', backref='triplets')
+    triplet = relationship('Triplet', backref='units')
 
 
 class SubunitTriplet(BaseModel):
@@ -49,6 +56,9 @@ class SubunitTriplet(BaseModel):
         info={'verbose_name': _('triplet')}
     )
 
+    subunit = relationship('Subunit', backref='triplets')
+    triplet = relationship('Triplet', backref='subunits')
+
 
 class DetailTriplet(BaseModel):
     __abstract__ = False
@@ -63,3 +73,6 @@ class DetailTriplet(BaseModel):
         sa.ForeignKey('triplet.id'),
         info={'verbose_name': _('triplet')}
     )
+
+    detail = relationship('Detail', backref='triplets')
+    triplet = relationship('Triplet', backref='details')

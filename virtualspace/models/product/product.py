@@ -12,8 +12,6 @@ class Product(BaseModel):
     number = sa.Column(sa.Unicode(16), nullable=False, info={'verbose_name': _('number')})
     registry_number = sa.Column(sa.Unicode(16), nullable=False, info={'verbose_name': _('number')})
 
-    triplets = relationship('Triplet', backref='products')
-
 
 class Unit(BaseModel):
     __abstract__ = False
@@ -26,7 +24,6 @@ class Unit(BaseModel):
 
     number = sa.Column(sa.Unicode(16), nullable=False, info={'verbose_name': _('number')})
 
-    triplets = relationship('Triplet', backref='units')
     product = relationship('Product', backref='units')
 
 
@@ -41,8 +38,7 @@ class Subunit(BaseModel):
 
     number = sa.Column(sa.Unicode(16), nullable=False, info={'verbose_name': _('number')})
 
-    triplets = relationship('Triplet', backref='subunits')
-    subunit = relationship('Unit', backref='subunits')
+    unit = relationship('Unit', backref='subunits')
 
 
 class Detail(BaseModel):
@@ -56,5 +52,4 @@ class Detail(BaseModel):
 
     number = sa.Column(sa.Unicode(16), nullable=False, info={'verbose_name': _('number')})
 
-    triplets = relationship('Triplet', backref='details')
-    units = relationship('Subunit', backref='details')
+    subunit = relationship('Subunit', backref='details')
