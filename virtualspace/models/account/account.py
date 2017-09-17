@@ -1,6 +1,7 @@
 from gettext import gettext as _
 
 import sqlalchemy as sa
+from sqlalchemy import exists
 from sqlalchemy.orm import relationship
 
 from virtualspace.models.base import BaseModel
@@ -17,7 +18,7 @@ class Account(BaseModel):
 
     is_active = sa.Column(sa.Boolean, nullable=False, default=True, info={'verbose_name': _('is active')})
 
-    nickname = sa.Column(sa.Unicode(128), nullable=False, info={'verbose_name': _('nickname')})
+    username = sa.Column(sa.Unicode(128), nullable=False, info={'verbose_name': _('username')})
     email = sa.Column(sa.Unicode(128), nullable=False, info={'verbose_name': _('email')})
     password = sa.Column(sa.Unicode(128), nullable=False, info={'verbose_name': _('password')})
 
@@ -26,3 +27,6 @@ class Account(BaseModel):
     last_name = sa.Column(sa.Unicode(128), info={'verbose_name': _('last name')})
 
     role = relationship('Role', backref='accounts')
+
+    def login(self, username, password):
+        return self.session.query(exists().where(Account.username == username and Account.password == password)).scalar()
