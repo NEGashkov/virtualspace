@@ -18,7 +18,7 @@ class BaseMainWindow(QMainWindow):
         self.show()
 
     def get_sa_session(self):
-        engine = sa.create_engine(settings.DB_URI)
+        engine = sa.create_engine(settings.DB_URL)
         return sa.orm.sessionmaker(bind=engine)()
 
     def init_ui(self):

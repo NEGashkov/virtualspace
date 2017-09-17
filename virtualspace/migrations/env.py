@@ -11,6 +11,7 @@ from sqlalchemy import engine_from_config, pool, MetaData
 log = logging.getLogger(__name__)
 
 try:
+    from virtualspace import settings
     from virtualspace import models
     from virtualspace.models.base import BaseModel
 except ImportError as e:
@@ -20,6 +21,7 @@ except ImportError as e:
     root = os.path.join(current_path, '..')
     sys.path.append(root)
 
+    from virtualspace import settings
     from virtualspace import models
     from virtualspace.utils.models.base import BaseModel
 
@@ -33,9 +35,8 @@ fileConfig(config.config_file_name)
 logger = logging.getLogger('alembic.env')
 db_names = config.get_main_option('databases')
 
-# TODO: Fetch database URLs from local settings.
-config.set_section_option('dev', 'url', 'postgres+psycopg2://vs_dev:dev@localhost/virtualspace_dev')
-config.set_section_option('test', 'url', 'postgres+psycopg2://vs_test:test@localhost/virtualspace_test')
+config.set_section_option('dev', 'url', settings.DB_DEV_URL)
+config.set_section_option('test', 'url', settings.DB_TEST_URL)
 
 
 def get_all_models_metadata():

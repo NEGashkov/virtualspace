@@ -2,7 +2,7 @@
 #
 # Distributed under MIT License. See LICENSE file for details.
 
-DB_DEV_URI = ''
-DB_TEST_URI = ''
+DB_DEV_URL = ''
+DB_TEST_URL = ''
 
-DB_URI = DB_DEV_URI
+DB_URL = DB_DEV_URL
