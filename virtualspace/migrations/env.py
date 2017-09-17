@@ -21,7 +21,7 @@ except ImportError as e:
     sys.path.append(root)
 
     from virtualspace import models
-    from virtualspace.models.base import BaseModel
+    from virtualspace.utils.models import BaseModel
 
 
 USE_TWOPHASE = False

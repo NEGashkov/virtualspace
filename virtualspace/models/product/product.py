@@ -1,9 +1,13 @@
+# Copyright (c) 2017 Nick Gashkov
+#
+# Distributed under MIT License. See LICENSE file for details.
+
 from gettext import gettext as _
 
 import sqlalchemy as sa
 from sqlalchemy.orm import relationship
 
-from virtualspace.models.base import BaseModel
+from virtualspace.utils.models import BaseModel
 
 
 class Product(BaseModel):

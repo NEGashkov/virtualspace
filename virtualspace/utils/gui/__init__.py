@@ -2,6 +2,4 @@
 #
 # Distributed under MIT License. See LICENSE file for details.
 
-from .product import *
-from .relationships import *
-from .triplet import *
+from .base import BaseMainView, BaseWidget

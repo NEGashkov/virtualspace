@@ -6,7 +6,7 @@
 
 import click
 
-from utils.commands.run_gui import RunGuiCommand
+from virtualspace.utils.commands import RunGuiCommand
 
 
 @click.group()
@@ -16,8 +16,7 @@ def main():
 
 @main.command()
 def run_gui():
-    command = RunGuiCommand()
-    command.execute()
+    RunGuiCommand.execute()
 
 
 if __name__ == '__main__':
