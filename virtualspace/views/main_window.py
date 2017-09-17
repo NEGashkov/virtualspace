@@ -1,0 +1,21 @@
+# Copyright (c) 2017 Nick Gashkov
+#
+# Distributed under MIT License. See LICENSE file for details.
+
+from virtualspace.utils.views.base import BaseMainWindow
+from virtualspace.views.account_create import AccountCreateView
+from virtualspace.views.login import LoginView
+from virtualspace.views.menu import MenuView
+
+
+class MainWindow(BaseMainWindow):
+    def init_ui(self):
+        super(MainWindow, self).init_ui()
+
+    def init_views(self):
+        self.account_create_view = AccountCreateView()
+        self.login_view = LoginView()
+        # self.logout_view = LogoutView()
+        self.menu_view = MenuView()
+
+        self.views = (self.login_view, self.account_create_view, self.menu_view)

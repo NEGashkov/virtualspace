@@ -2,5 +2,5 @@
 #
 # Distributed under MIT License. See LICENSE file for details.
 
-from .views import BaseMainView
-from .widgets import BaseWidget
+from .windows import BaseMainWindow
+from .views import BaseView

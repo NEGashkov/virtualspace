@@ -2,24 +2,50 @@
 #
 # Distributed under MIT License. See LICENSE file for details.
 
-import sqlalchemy as sa
-from PyQt5.QtWidgets import QMainWindow, QStackedWidget
-
-from virtualspace import settings
+from PyQt5.QtWidgets import QWidget, QGridLayout
 
 
-class BaseMainView(QMainWindow):
+class BaseView(QWidget):
+    controller = None
+
     def __init__(self, *args, **kwargs):
-        super(BaseMainView, self).__init__(*args, **kwargs)
+        super(BaseView, self).__init__(*args, **kwargs)
 
         self.init_ui()
-        self.show()
+
+    def init_ui(self):
+        self.init_widgets()
+        self.connect_buttons()
+        self.init_layout()
+
+    def init_widgets(self):
+        self.init_labels()
+        self.init_line_edits()
+        self.init_buttons()
+
+    def init_labels(self):
+        pass
+
+    def init_line_edits(self):
+        pass
+
+    def init_buttons(self):
+        pass
+
+    def connect_buttons(self):
+        pass
+
+    def init_layout(self):
+        self.layout = QGridLayout(self)
+
+    @property
+    def stacked_widget(self):
+        return self.parentWidget()
+
+    @property
+    def main_window(self):
+        return self.stacked_widget.parentWidget()
 
     @property
     def sa_session(self):
-        engine = sa.create_engine(settings.DB_URI, echo='debug')
-        return sa.orm.sessionmaker(bind=engine)()
-
-    def init_ui(self):
-        self.central_widget = QStackedWidget(self)
-        self.setCentralWidget(self.central_widget)
+        return self.main_window.sa_session
