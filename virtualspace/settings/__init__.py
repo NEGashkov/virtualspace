@@ -2,4 +2,5 @@
 #
 # Distributed under MIT License. See LICENSE file for details.
 
+from .dist import *
 from .local import *

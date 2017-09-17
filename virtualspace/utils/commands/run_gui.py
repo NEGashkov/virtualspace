@@ -6,8 +6,8 @@ import sys
 
 from PyQt5.QtWidgets import QApplication
 
-from virtualspace.views.main_window import MainWindow
 from virtualspace.utils.commands.base import BaseCommand
+from virtualspace.views.main_window import MainWindow
 
 
 class RunGuiCommand(BaseCommand):
