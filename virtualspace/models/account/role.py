@@ -6,7 +6,7 @@ from gettext import gettext as _
 
 import sqlalchemy as sa
 
-from virtualspace.utils.models import BaseModel
+from virtualspace.utils.models.base import BaseModel
 
 
 class Role(BaseModel):

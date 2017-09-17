@@ -2,4 +2,4 @@
 #
 # Distributed under MIT License. See LICENSE file for details.
 
-from .base import BaseMainView, BaseWidget
+from .commands import BaseCommand

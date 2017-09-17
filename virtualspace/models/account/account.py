@@ -7,7 +7,7 @@ from gettext import gettext as _
 import sqlalchemy as sa
 from sqlalchemy.orm import relationship
 
-from virtualspace.utils.models import BaseModel
+from virtualspace.utils.models.base import BaseModel
 
 
 class Account(BaseModel):

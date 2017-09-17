@@ -6,7 +6,7 @@ import sys
 
 from PyQt5.QtWidgets import QApplication
 
-from virtualspace.gui.main import MainWindow
+from virtualspace.views.main import MainWindow
 from virtualspace.utils.commands.base import BaseCommand
 
 

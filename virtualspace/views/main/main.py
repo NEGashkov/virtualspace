@@ -7,7 +7,7 @@ from PyQt5.QtWidgets import QPushButton, QLabel, QLineEdit, QApplication, QMessa
 from sqlalchemy import exists
 
 from virtualspace.models import Account
-from virtualspace.utils.gui import BaseMainView, BaseWidget
+from virtualspace.utils.views.base import BaseMainView, BaseWidget
 
 
 class MainWindow(BaseMainView):
