@@ -8,6 +8,8 @@ from PyQt5.QtWidgets import QWidget, QGridLayout
 class BaseView(QWidget):
     controller = None
 
+    grid = tuple()
+
     def __init__(self, *args, **kwargs):
         super(BaseView, self).__init__(*args, **kwargs)
 
@@ -37,6 +39,14 @@ class BaseView(QWidget):
 
     def init_layout(self):
         self.layout = QGridLayout(self)
+
+        for row, widgets_str in enumerate(self.grid):
+            for col, widget_str in enumerate(widgets_str):
+                if widget_str is None:
+                    continue
+
+                widget = getattr(self, widget_str, None)
+                self.layout.addWidget(widget, row, col)
 
     @property
     def stacked_widget(self):

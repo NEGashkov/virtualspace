@@ -3,7 +3,7 @@
 # Distributed under MIT License. See LICENSE file for details.
 
 from virtualspace.utils.views.base import BaseMainWindow
-from virtualspace.views.account_create import AccountCreateView
+from virtualspace.views.account import AccountCreateView
 from virtualspace.views.login import LoginView
 from virtualspace.views.menu import MenuView
 

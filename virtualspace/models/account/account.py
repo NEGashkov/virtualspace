@@ -5,9 +5,10 @@
 from gettext import gettext as _
 
 import sqlalchemy as sa
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, validates
 
 from virtualspace.utils.models.base import BaseModel
+from virtualspace.validators.account import AccountValidator
 
 
 class Account(BaseModel):
@@ -21,8 +22,8 @@ class Account(BaseModel):
 
     is_active = sa.Column(sa.Boolean, nullable=False, default=True, info={'verbose_name': _('is active')})
 
-    username = sa.Column(sa.Unicode(128), nullable=False, info={'verbose_name': _('username')})
-    email = sa.Column(sa.Unicode(128), nullable=False, info={'verbose_name': _('email')})
+    username = sa.Column(sa.Unicode(128), unique=True, nullable=False, info={'verbose_name': _('username')})
+    email = sa.Column(sa.Unicode(128), unique=True, nullable=False, info={'verbose_name': _('email')})
     password = sa.Column(sa.Unicode(128), nullable=False, info={'verbose_name': _('password')})
 
     first_name = sa.Column(sa.Unicode(128), info={'verbose_name': _('first name')})
@@ -31,8 +32,11 @@ class Account(BaseModel):
 
     role = relationship('Role', backref='accounts')
 
+    validator = AccountValidator
+
     def __str__(self):
         return '<User: {username}>'.format(username=self.username)
 
-    def login(self, username, password):
-        pass
+    @validates('username', include_removes=True)
+    def validate_username(self, key, value, is_remove):
+        return self.validator.validate_username(key, value, is_remove)

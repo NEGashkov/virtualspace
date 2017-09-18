@@ -1,0 +1,16 @@
+from gettext import gettext as _
+
+from virtualspace.utils.exceptions import ValidationError
+from virtualspace.utils.text import capfirst
+
+
+class BaseValidator:
+    fail_messages = tuple()
+
+    default_fail_message = _('unknown error')
+
+    @classmethod
+    def fail(cls, field_name, key):
+        fail_messages = dict(cls.fail_messages)
+        fail_message = fail_messages.get(key, cls.default_fail_message)
+        raise ValidationError({field_name: capfirst(fail_message)})

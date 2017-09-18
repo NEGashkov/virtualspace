@@ -13,6 +13,7 @@ class MenuView(BaseView):
     def init_buttons(self):
         self.list_button = QPushButton('List')
         self.add_button = QPushButton('Add')
+        self.settings_button = QPushButton('Settings')
         self.logout_button = QPushButton('Logout')
 
     def connect_buttons(self):
