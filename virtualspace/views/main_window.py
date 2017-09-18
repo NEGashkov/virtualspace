@@ -9,9 +9,6 @@ from virtualspace.views.menu import MenuView
 
 
 class MainWindow(BaseMainWindow):
-    def init_ui(self):
-        super(MainWindow, self).init_ui()
-
     def init_views(self):
         self.account_create_view = AccountCreateView()
         self.login_view = LoginView()

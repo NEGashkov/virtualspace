@@ -5,4 +5,4 @@
 import os
 
 PROJECT_ROOT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-LOGGING_INI_PATH = os.path.join(PROJECT_ROOT_PATH, '..', 'logging.ini')
+LOGGING_INI_PATH = os.path.abspath(os.path.join(PROJECT_ROOT_PATH, '..', 'logging.ini'))

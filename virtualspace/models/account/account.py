@@ -31,5 +31,8 @@ class Account(BaseModel):
 
     role = relationship('Role', backref='accounts')
 
+    def __str__(self):
+        return '<User: {username}>'.format(username=self.username)
+
     def login(self, username, password):
         pass

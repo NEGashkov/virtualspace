@@ -30,7 +30,7 @@ class BaseModel(SqlAlchemyBase):
     __abstract__ = True
 
     def __repr__(self):
-        return '<{cls} {id}>'.format(cls=self.__class__, id=self.id)
+        return '<{cls}: {id}>'.format(cls=self.__class__.__name__, id=self.id)
 
     @declared_attr
     def __tablename__(self):

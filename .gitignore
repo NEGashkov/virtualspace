@@ -9,6 +9,9 @@ __pycache__
 logs/*
 virtualspace/settings/local.py
 
+# Ignore local SQLite datafile.
+virtualspace/data/sqlite.db
+
 # Keep this .gitignore and .gitkeep files. .gitkeep used for committing empty
 # directories, when defining repository structure.
 !.gitignore

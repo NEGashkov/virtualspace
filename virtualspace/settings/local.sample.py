@@ -4,5 +4,6 @@
 
 DB_DEV_URL = ''
 DB_TEST_URL = ''
+DB_PROD_URL = ''
 
 DB_URL = DB_DEV_URL
