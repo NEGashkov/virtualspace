@@ -1,3 +1,7 @@
+# Copyright (c) 2017 Nick Gashkov
+#
+# Distributed under MIT License. See LICENSE file for details.
+
 from gettext import gettext as _
 
 from virtualspace.utils.exceptions import ValidationError

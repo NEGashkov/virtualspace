@@ -13,6 +13,14 @@ from virtualspace.utils.views.base import BaseView
 class LoginView(BaseView):
     controller = LoginController
 
+    grid = (
+        (None, 'title_label', None),
+        ('username_label', 'username_line_edit', None),
+        ('password_label', 'password_line_edit', None),
+        ('login_button', 'create_account_button', 'exit_button'),
+        (None, 'version_label', None),
+    )
+
     def init_labels(self):
         self.title_label = QLabel('Login to Virtual Space')
         self.version_label = QLabel('Version 0.1a1')
@@ -38,19 +46,6 @@ class LoginView(BaseView):
         self.create_account_button.clicked.connect(self.__create_account)
         self.exit_button.clicked.connect(self.__exit)
 
-    def init_layout(self):
-        super(LoginView, self).init_layout()
-
-        self.layout.addWidget(self.title_label, 0, 0, 1, 1)
-        self.layout.addWidget(self.username_label, 1, 0)
-        self.layout.addWidget(self.username_line_edit, 1, 1)
-        self.layout.addWidget(self.password_label, 2, 0)
-        self.layout.addWidget(self.password_line_edit, 2, 1)
-        self.layout.addWidget(self.login_button, 3, 0)
-        self.layout.addWidget(self.exit_button, 3, 1)
-        self.layout.addWidget(self.create_account_button, 3, 2)
-        self.layout.addWidget(self.version_label, 4, 0, 4, 1)
-
     def __login(self):
         username = self.username_line_edit.text()
         password = self.password_line_edit.text()
@@ -58,7 +53,6 @@ class LoginView(BaseView):
         success = self.controller.do_login(self.sa_session, username, password)
 
         if success:
-            QMessageBox.warning(self, 'OK', 'Its ok!', QMessageBox.Ok)
             self.stacked_widget.setCurrentWidget(self.main_window.menu_view)
         else:
             QMessageBox.warning(self, 'Error', 'Its not okay!', QMessageBox.Ok)

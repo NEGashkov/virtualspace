@@ -1,3 +1,7 @@
+# Copyright (c) 2017 Nick Gashkov
+#
+# Distributed under MIT License. See LICENSE file for details.
+
 from virtualspace.models import Account
 from virtualspace.utils.models.query import get_instance_or_none
 

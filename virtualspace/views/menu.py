@@ -8,7 +8,12 @@ from virtualspace.utils.views.base import BaseView
 
 
 class MenuView(BaseView):
-    # controller = MenuController
+    grid = (
+        ('list_button',),
+        ('add_button',),
+        ('settings_button',),
+        ('logout_button',),
+    )
 
     def init_buttons(self):
         self.list_button = QPushButton('List')
@@ -19,14 +24,5 @@ class MenuView(BaseView):
     def connect_buttons(self):
         self.logout_button.clicked.connect(self.__logout)
 
-    def init_layout(self):
-        super(MenuView, self).init_layout()
-
-        self.layout.addWidget(self.list_button, 0, 0, 1, 1)
-        self.layout.addWidget(self.add_button, 1, 0)
-        self.layout.addWidget(self.settings_button, 1, 1)
-        self.layout.addWidget(self.logout_button, 2, 0)
-
     def __logout(self):
-        # Use controller.
         self.stacked_widget.setCurrentWidget(self.main_window.login_view)

@@ -12,7 +12,6 @@ class MainWindow(BaseMainWindow):
     def init_views(self):
         self.account_create_view = AccountCreateView()
         self.login_view = LoginView()
-        # self.logout_view = LogoutView()
         self.menu_view = MenuView()
 
         self.views = (self.login_view, self.account_create_view, self.menu_view)
