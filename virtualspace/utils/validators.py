@@ -17,4 +17,4 @@ class BaseValidator:
     def fail(cls, field_name, key):
         fail_messages = dict(cls.fail_messages)
         fail_message = fail_messages.get(key, cls.default_fail_message)
-        raise ValidationError({field_name: capfirst(fail_message)})
+        raise ValidationError(error_dict={field_name: capfirst(fail_message)})

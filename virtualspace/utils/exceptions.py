@@ -4,4 +4,6 @@
 
 
 class ValidationError(Exception):
-    pass
+    def __init__(self, *args, **kwargs):
+        self.error_dict = kwargs.pop('error_dict')
+        super(ValidationError, self).__init__(*args, **kwargs)
