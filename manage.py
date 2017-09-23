@@ -5,15 +5,14 @@
 # Distributed under MIT License. See LICENSE file for details.
 
 import click
-import logging.config
 
-from virtualspace import settings
 from virtualspace.utils.commands import RunGuiCommand
+from virtualspace.utils.logging import setup_logging
 
 
 @click.group()
 def main():
-    logging.config.fileConfig(settings.LOGGING_INI_PATH, disable_existing_loggers=False)
+    setup_logging()
 
 
 @main.command()

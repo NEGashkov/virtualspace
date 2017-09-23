@@ -1,0 +1,25 @@
+#:kivy 1.0
+
+# Copyright (c) 2017 Nick Gashkov
+#
+# Distributed under MIT License. See LICENSE file for details.
+
+#:import _ gettext.gettext
+#:import capfirst virtualspace.utils.text.capfirst
+
+<MenuScreen>:
+    GridLayout:
+        padding: [20, 20, 20, 20]
+        rows: 5
+        cols: 1
+        Button:
+            text: capfirst(_('product list'))
+        Button:
+            text: capfirst(_('add new product'))
+        Button:
+            text: capfirst(_('knowledge'))
+        Button:
+            text: capfirst(_('settings'))
+        Button:
+            text: capfirst(_('exit'))
+            on_press: app.stop()

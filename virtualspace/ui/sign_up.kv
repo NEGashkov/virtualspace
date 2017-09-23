@@ -1,0 +1,38 @@
+#:kivy 1.0
+
+# Copyright (c) 2017 Nick Gashkov
+#
+# Distributed under MIT License. See LICENSE file for details.
+
+#:import _ gettext.gettext
+#:import capfirst virtualspace.utils.text.capfirst
+
+<SignUpScreen>:
+    GridLayout:
+        padding: [20, 20, 20, 20]
+        rows: 5
+        cols: 2
+        Label:
+            text: capfirst(_('username'))
+        TextInput:
+            hint_text: capfirst(_('username'))
+        Label:
+            text: capfirst(_('email'))
+        TextInput:
+            hint_text: capfirst(_('email'))
+        Label:
+            text: capfirst(_('password'))
+        TextInput:
+            hint_text: capfirst(_('password'))
+            password: True
+        Label:
+            text: capfirst(_('confirm password'))
+        TextInput:
+            hint_text: capfirst(_('password'))
+            password: True
+        Button:
+            text: capfirst(_('sign up'))
+            on_press: root.manager.current = 'menu'
+        Button:
+            text: capfirst(_('back to sign in'))
+            on_press: root.manager.current = 'sign_in'
