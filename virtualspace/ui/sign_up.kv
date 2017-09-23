@@ -4,7 +4,7 @@
 #
 # Distributed under MIT License. See LICENSE file for details.
 
-#:import _ gettext.gettext
+#:import _ virtualspace.utils.translation.gettext
 #:import capfirst virtualspace.utils.text.capfirst
 
 <SignUpScreen>:
@@ -34,5 +34,5 @@
             text: capfirst(_('sign up'))
             on_press: root.manager.current = 'menu'
         Button:
-            text: capfirst(_('back to sign in'))
+            text: capfirst(_('back'))
             on_press: root.manager.current = 'sign_in'
