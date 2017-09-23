@@ -15,10 +15,15 @@ class AccountCreateController:
 
     @classmethod
     def create_account(cls, sa_session, username, password, email):
+        success, error_dict = True, dict()
         try:
             account = cls.model(username=username, password=password, email=email)
         except ValidationError as e:
             log.debug(e)
+            success = False
+            error_dict = e.error_dict
         else:
             sa_session.add(account)
             sa_session.commit()
+
+        return success, error_dict
