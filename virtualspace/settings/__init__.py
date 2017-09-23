@@ -3,4 +3,5 @@
 # Distributed under MIT License. See LICENSE file for details.
 
 from .dist import *
+from .vars import *
 from .local import *
