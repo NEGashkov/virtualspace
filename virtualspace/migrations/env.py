@@ -12,6 +12,7 @@ log = logging.getLogger(__name__)
 try:
     from virtualspace import models, settings
     from virtualspace.models.base import BaseModel
+    from virtualspace.utils.db import combine_metadata, get_all_models_metadata
 except ImportError as e:
     log.debug(e)
 
@@ -19,9 +20,9 @@ except ImportError as e:
     root = os.path.abspath(os.path.join(current_path, '..', '..'))
     sys.path.append(root)
 
-    from virtualspace import settings
-    from virtualspace import models
+    from virtualspace import settings, models
     from virtualspace.utils.models.bases import BaseModel
+    from virtualspace.utils.db import combine_metadata, get_all_models_metadata
 
 
 # Config is an alembic .ini file with configuration.
@@ -30,26 +31,6 @@ config = context.config
 fileConfig(config.config_file_name)
 logger = logging.getLogger(__name__)
 config.set_main_option('sqlalchemy.url', settings.DB_URL)
-
-
-def get_all_models_metadata():
-    metadata = []
-
-    for name, cls in inspect.getmembers(models):
-        if inspect.isclass(cls) and issubclass(cls, BaseModel):
-            metadata.append(cls.metadata)
-
-    return metadata
-
-
-def combine_metadata(*args):
-    m = MetaData()
-    for metadata in args:
-        for t in metadata.tables.values():
-            t.tometadata(m)
-    return m
-
-
 target_metadata = combine_metadata(*get_all_models_metadata())
 
 
