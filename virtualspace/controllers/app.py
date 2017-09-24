@@ -2,9 +2,6 @@
 #
 # Distributed under MIT License. See LICENSE file for details.
 
-import kivy
-kivy.require('1.10.0')
-
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, NoTransition
@@ -13,12 +10,17 @@ from virtualspace import settings
 from virtualspace.controllers.menu import MenuScreen
 from virtualspace.controllers.sign_in import SignInScreen
 from virtualspace.controllers.sign_up import SignUpScreen
+from virtualspace.utils.db import get_new_sa_session
 
 
 Builder.load_file(settings.KV_UI_PATH)
 
 
 class VirtualSpaceApp(App):
+    @property
+    def sa_session(self):
+        return get_new_sa_session()
+
     def build(self):
         screen_manager = ScreenManager(transition=NoTransition())
 

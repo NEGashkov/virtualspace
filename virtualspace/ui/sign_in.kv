@@ -15,15 +15,17 @@
         Label:
             text: capfirst(_('username'))
         TextInput:
+            id: username_text_input
             hint_text: capfirst(_('username'))
         Label:
             text: capfirst(_('password'))
         TextInput:
+            id: password_text_input
             hint_text: capfirst(_('password'))
             password: True
         Button:
             text: capfirst(_('sign in'))
-            on_press: root.manager.current = 'menu'
+            on_press: root.do_login(username_text_input.text, password_text_input.text)
         Button:
             text: capfirst(_('sign up'))
             on_press: root.manager.current = 'sign_up'
