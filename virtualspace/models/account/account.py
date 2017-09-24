@@ -7,7 +7,7 @@ from virtualspace.utils.translation import gettext as _
 import sqlalchemy as sa
 from sqlalchemy.orm import relationship, validates
 
-from virtualspace.utils.models.base import BaseModel
+from virtualspace.utils.models.bases import BaseModel
 from virtualspace.validators.account import AccountValidator
 
 

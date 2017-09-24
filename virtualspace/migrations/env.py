@@ -21,7 +21,7 @@ except ImportError as e:
 
     from virtualspace import settings
     from virtualspace import models
-    from virtualspace.utils.models.base import BaseModel
+    from virtualspace.utils.models.bases import BaseModel
 
 
 # Config is an alembic .ini file with configuration.
