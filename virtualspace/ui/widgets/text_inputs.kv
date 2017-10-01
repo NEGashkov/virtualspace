@@ -1,0 +1,15 @@
+#:kivy 1.0
+
+# Copyright (c) 2017 Nick Gashkov
+#
+# Distributed under MIT License. See LICENSE file for details.
+
+#:import hex kivy.utils.get_color_from_hex
+
+<BaseTextInput@TextInput>
+    padding_y: (self.height - self.line_height) / 2
+
+
+<PasswordInput@BaseTextInput>
+    hint_text: '********'
+    password: True

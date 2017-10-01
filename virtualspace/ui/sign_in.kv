@@ -6,29 +6,67 @@
 
 #:import _ virtualspace.utils.translation.gettext
 #:import capfirst virtualspace.utils.text.capfirst
+#:import hex kivy.utils.get_color_from_hex
+
 
 <SignInScreen>:
+    canvas.before:
+        Color:
+            rgba: hex('#e7dacb')
+        Rectangle:
+            pos: self.pos
+            size: self.size
     GridLayout:
-        padding: [20, 20, 20, 20]
-        rows: 4
+        pos_hint: {'x': 0, 'y': 0.8}
+        size_hint: (1, .1)
+        cols: 1
+        rows: 1
+        TitleLabel:
+            id: application_title_label
+            text: capfirst(_('VIRTUAL SPACE'))
+    GridLayout:
+        pos_hint: {'x': .25, 'y': .5}
+        size_hint: (.5, .25)
+        spacing: (5, 5)
         cols: 2
-        Label:
+        rows: 5
+        TextInputLabel:
+            id: username_label
             text: capfirst(_('username'))
-        TextInput:
+        BaseTextInput:
             id: username_text_input
-            hint_text: capfirst(_('username'))
-        Label:
+            hint_text: 'username'
+        FillerLabel:
+            id: username_filler_label
+        ErrorLabel:
+            id: username_error_label
+        TextInputLabel:
+            id: password_label
             text: capfirst(_('password'))
-        TextInput:
+        PasswordInput:
             id: password_text_input
-            hint_text: capfirst(_('password'))
-            password: True
-        Button:
+        FillerLabel:
+            id: password_filler_label
+        ErrorLabel:
+            id: password_error_label
+    GridLayout:
+        pos_hint: {'x': .25, 'y': .25}
+        size_hint: (.5, .0625)
+        cols: 2
+        rows: 1
+        BaseButton:
+            id: sign_in_button
             text: capfirst(_('sign in'))
-            on_press: root.do_login(username_text_input.text, password_text_input.text)
-        Button:
+            on_release: root.do_login(username_text_input.text, password_text_input.text)
+        BaseButton:
+            id: sign_up_button
             text: capfirst(_('sign up'))
-            on_press: root.manager.current = 'sign_up'
-        Button:
-            text: capfirst(_('exit'))
-            on_press: app.stop()
+            on_release: root.manager.current = 'sign_up'
+    GridLayout:
+        pos_hint: {'x': .0, 'y': .0}
+        size_hint: (1, .0625)
+        cols: 1
+        rows: 1
+        BaseLabel:
+            id: copyright_label
+            text: capfirst(_('copyright © 2017 Nick Gashkov'))

@@ -1,0 +1,35 @@
+#:kivy 1.0
+
+# Copyright (c) 2017 Nick Gashkov
+#
+# Distributed under MIT License. See LICENSE file for details.
+
+#:import hex kivy.utils.get_color_from_hex
+
+<BaseLabel@Label>
+    font_size: '12pt'
+    color: hex('#21374b')
+    text_size: self.size
+    halign: 'center'
+    valign: 'middle'
+
+
+<TextInputLabel@BaseLabel>
+    halign: 'right'
+
+
+<ErrorLabel@Label>
+    text: ''
+    font_size: '10pt'
+    color: hex('#be4248')
+    text_size: self.size
+    halign: 'left'
+    valign: 'top'
+
+
+<FillerLabel@ErrorLabel>
+
+
+<TitleLabel@BaseLabel>
+    font_size: '16pt'
+    bold: True

@@ -1,0 +1,72 @@
+#:kivy 1.0
+
+# Copyright (c) 2017 Nick Gashkov
+#
+# Distributed under MIT License. See LICENSE file for details.
+
+#:import hex kivy.utils.get_color_from_hex
+
+
+<BlackGridLayout@GridLayout>
+    canvas.before:
+        Color:
+            rgba: hex('#000000')
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<WhiteGridLayout@GridLayout>
+    canvas.before:
+        Color:
+            rgba: hex('#ffffff')
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<BlackLabel@Label>
+    canvas.before:
+        Color:
+            rgba: hex('#000000')
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<WhiteLabel@Label>
+    canvas.before:
+        Color:
+            rgba: hex('#ffffff')
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<BlackTextInput@TextInput>
+    canvas.before:
+        Color:
+            rgba: hex('#000000')
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<WhiteTextInput@TextInput>
+    canvas.before:
+        Color:
+            rgba: hex('#ffffff')
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<BlackButton@Button>
+    canvas.before:
+        Color:
+            rgba: hex('#000000')
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<WhiteButton@Button>
+    canvas.before:
+        Color:
+            rgba: hex('#ffffff')
+        Rectangle:
+            pos: self.pos
+            size: self.size
