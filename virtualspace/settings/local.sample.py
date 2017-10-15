@@ -5,6 +5,8 @@
 from .dist import *
 from .vars import *
 
+LANGUAGE = 'ru'
+
 DB_DEV_URL = ''
 DB_TEST_URL = ''
 DB_PROD_URL = ''
