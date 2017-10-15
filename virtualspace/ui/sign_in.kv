@@ -5,6 +5,7 @@
 # Distributed under MIT License. See LICENSE file for details.
 
 #:import _ virtualspace.utils.translation.gettext
+#:import settings virtualspace.settings
 #:import capfirst virtualspace.utils.text.capfirst
 #:import hex kivy.utils.get_color_from_hex
 
@@ -29,7 +30,7 @@
         size_hint: (.5, .25)
         spacing: (5, 5)
         cols: 2
-        rows: 5
+        rows: 4
         TextInputLabel:
             id: username_label
             text: capfirst(_('username'))
@@ -59,9 +60,9 @@
             text: capfirst(_('sign in'))
             on_release: root.do_login(username_text_input.text, password_text_input.text)
         BaseButton:
-            id: sign_up_button
+            id: go_to_sign_up_button
             text: capfirst(_('sign up'))
-            on_release: root.manager.current = 'sign_up'
+            on_release: root.manager.current = settings.SIGN_UP_SCREEN_NAME
     GridLayout:
         pos_hint: {'x': .0, 'y': .0}
         size_hint: (1, .0625)

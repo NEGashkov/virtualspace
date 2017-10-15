@@ -5,34 +5,87 @@
 # Distributed under MIT License. See LICENSE file for details.
 
 #:import _ virtualspace.utils.translation.gettext
+#:import settings virtualspace.settings
 #:import capfirst virtualspace.utils.text.capfirst
+#:import hex kivy.utils.get_color_from_hex
 
 <SignUpScreen>:
+    canvas.before:
+        Color:
+            rgba: hex('#e7dacb')
+        Rectangle:
+            pos: self.pos
+            size: self.size
     GridLayout:
-        padding: [20, 20, 20, 20]
-        rows: 5
-        cols: 2
-        Label:
-            text: capfirst(_('username'))
-        TextInput:
-            hint_text: capfirst(_('username'))
-        Label:
-            text: capfirst(_('email'))
-        TextInput:
-            hint_text: capfirst(_('email'))
-        Label:
-            text: capfirst(_('password'))
-        TextInput:
-            hint_text: capfirst(_('password'))
-            password: True
-        Label:
-            text: capfirst(_('confirm password'))
-        TextInput:
-            hint_text: capfirst(_('password'))
-            password: True
-        Button:
+        pos_hint: {'x': 0, 'y': 0.8}
+        size_hint: (1, .1)
+        cols: 1
+        rows: 1
+        TitleLabel:
+            id: title_label
             text: capfirst(_('sign up'))
-            on_press: root.manager.current = 'menu'
-        Button:
+    GridLayout:
+        pos_hint: {'x': .25, 'y': .25}
+        size_hint: (.5, .5)
+        spacing: (5, 5)
+        cols: 2
+        rows: 8
+        TextInputLabel:
+            id: username_label
+            text: capfirst(_('username'))
+        BaseTextInput:
+            id: username_text_input
+            hint_text: 'username'
+        FillerLabel:
+            id: username_filler_label
+        ErrorLabel:
+            id: username_error_label
+        TextInputLabel:
+            id: email_label
+            text: capfirst(_('email'))
+        BaseTextInput:
+            id: email_text_input
+            hint_text: 'sample@mail.com'
+        FillerLabel:
+            id: email_filler_label
+        ErrorLabel:
+            id: email_error_label
+        TextInputLabel:
+            id: password_label
+            text: capfirst(_('password'))
+        PasswordInput:
+            id: password_text_input
+        FillerLabel:
+            id: password_filler_label
+        ErrorLabel:
+            id: password_error_label
+        TextInputLabel:
+            id: confirm_password_label
+            text: capfirst(_('confirm'))
+        PasswordInput:
+            id: confirm_password_text_input
+        FillerLabel:
+            id: confirm_password_filler_label
+        ErrorLabel:
+            id: confirm_password_error_label
+    GridLayout:
+        pos_hint: {'x': .25, 'y': .125}
+        size_hint: (.5, .0625)
+        cols: 2
+        rows: 1
+        BaseButton:
+            id: sign_up_button
+            text: capfirst(_('sign up'))
+            on_release: root.do_sign_up(username_text_input.text, email_text_input.text, password_text_input.text, confirm_password_text_input.text)
+        BaseButton:
+            id: go_back_button
             text: capfirst(_('back'))
-            on_press: root.manager.current = 'sign_in'
+            on_release: root.manager.current = settings.SIGN_IN_SCREEN_NAME
+    GridLayout:
+        pos_hint: {'x': .0, 'y': .0}
+        size_hint: (1, .0625)
+        cols: 1
+        rows: 1
+        BaseLabel:
+            id: copyright_label
+            text: capfirst(_('copyright © 2017 Nick Gashkov'))
