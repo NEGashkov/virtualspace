@@ -29,5 +29,11 @@ class SignInScreen(Screen):
         if instance is None:
             self.ids['username_error_label'].text = capfirst(_('wrong username or password'))
             success = False
+        if not self.username:
+            self.ids['username_error_label'].text = capfirst(_('required field'))
+            success = False
+        if not self.password:
+            self.ids['password_error_label'].text = capfirst(_('required field'))
+            success = False
 
         return success
