@@ -1,12 +1,11 @@
 # Copyright (c) 2017 Nick Gashkov
 #
 # Distributed under MIT License. See LICENSE file for details.
-
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.1a\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-24 01:00+0300\n"
+"POT-Creation-Date: 2017-10-15 14:56+0300\n"
 "PO-Revision-Date: 2017-09-24 00:56+0300\n"
 "Last-Translator: Nick Gashkov <nick@gashkov.xyz>\n"
 "Language-Team: Gashkov <nick@gashkov.xyz>\n"
@@ -14,6 +13,25 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: virtualspace/controllers/sign_in.py:30
+msgid "wrong username or password"
+msgstr "неверное имя пользователя или пароль"
+
+#: virtualspace/controllers/sign_up.py:32
+msgid "passwords do not match"
+msgstr "пароли не совпадают"
+
+#: virtualspace/controllers/sign_up.py:35
+msgid "username is taken"
+msgstr "имя пользователя занято"
+
+#: virtualspace/controllers/sign_up.py:38
+#: virtualspace/controllers/sign_up.py:40
+#: virtualspace/controllers/sign_up.py:42
+#: virtualspace/controllers/sign_up.py:44
+msgid "required field"
+msgstr "обязательное поле"
 
 #: virtualspace/models/account/account.py:20
 msgid "role"
@@ -23,20 +41,17 @@ msgstr "роль"
 msgid "is active"
 msgstr "активен"
 
-#: virtualspace/models/account/account.py:25 virtualspace/ui/sign_in.kv:16
-#: virtualspace/ui/sign_in.kv:18 virtualspace/ui/sign_up.kv:16
-#: virtualspace/ui/sign_up.kv:18
+#: virtualspace/models/account/account.py:25 virtualspace/ui/sign_in.kv:36
+#: virtualspace/ui/sign_up.kv:35
 msgid "username"
 msgstr "имя пользователя"
 
-#: virtualspace/models/account/account.py:26 virtualspace/ui/sign_up.kv:20
-#: virtualspace/ui/sign_up.kv:22
+#: virtualspace/models/account/account.py:26 virtualspace/ui/sign_up.kv:45
 msgid "email"
 msgstr "электронная почта"
 
-#: virtualspace/models/account/account.py:27 virtualspace/ui/sign_in.kv:20
-#: virtualspace/ui/sign_in.kv:22 virtualspace/ui/sign_up.kv:24
-#: virtualspace/ui/sign_up.kv:26 virtualspace/ui/sign_up.kv:31
+#: virtualspace/models/account/account.py:27 virtualspace/ui/sign_in.kv:46
+#: virtualspace/ui/sign_up.kv:55
 msgid "password"
 msgstr "пароль"
 
@@ -122,27 +137,36 @@ msgstr "база знаний"
 msgid "settings"
 msgstr "настройки"
 
-#: virtualspace/ui/menu.kv:24 virtualspace/ui/sign_in.kv:31
+#: virtualspace/ui/menu.kv:24
 msgid "exit"
 msgstr "выход"
 
-#: virtualspace/ui/sign_in.kv:25
+#: virtualspace/ui/sign_in.kv:27
+msgid "VIRTUAL SPACE"
+msgstr "ВСПТД"
+
+#: virtualspace/ui/sign_in.kv:60
 msgid "sign in"
 msgstr "войти"
 
-#: virtualspace/ui/sign_in.kv:28 virtualspace/ui/sign_up.kv:34
+#: virtualspace/ui/sign_in.kv:64 virtualspace/ui/sign_up.kv:26
+#: virtualspace/ui/sign_up.kv:78
 msgid "sign up"
 msgstr "зарегистрироваться"
 
-#: virtualspace/ui/sign_up.kv:29
-msgid "confirm password"
-msgstr "подствердите пароль"
+#: virtualspace/ui/sign_in.kv:73 virtualspace/ui/sign_up.kv:91
+msgid "copyright (c) 2017 Nick Gashkov"
+msgstr "все права защищены © 2017 Никита Гашков"
 
-#: virtualspace/ui/sign_up.kv:37
+#: virtualspace/ui/sign_up.kv:64
+msgid "confirm"
+msgstr "подтвердите"
+
+#: virtualspace/ui/sign_up.kv:82
 msgid "back"
 msgstr "назад"
 
-#: virtualspace/utils/models/base/models.py:48
+#: virtualspace/utils/models/bases.py:48
 msgid "id"
 msgstr "идентификатор"
 
@@ -162,3 +186,6 @@ msgstr "имя пользователя должно быть короче {max_
 #: virtualspace/validators/account.py:22
 msgid "cannot delete username"
 msgstr "нельзя удалить имя пользователя"
+
+#~ msgid "confirm password"
+#~ msgstr "подтвердите пароль"

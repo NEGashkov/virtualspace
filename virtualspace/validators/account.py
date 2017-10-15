@@ -22,8 +22,8 @@ class AccountValidator(BaseValidator):
         (CANNOT_DELETE, _('cannot delete username')),
     )
 
-    @property
-    def account_model(self):
+    @classmethod
+    def get_account_model(cls):
         # TODO: Implement lazy model loading.
         from virtualspace.models import Account
         return Account

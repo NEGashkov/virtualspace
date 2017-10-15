@@ -34,5 +34,13 @@ class SignUpScreen(Screen):
         if sa_session.query(exists().where(Account.username == self.username)).scalar():
             self.ids['username_error_label'].text = capfirst(_('username is taken'))
             success = False
+        if not self.username:
+            self.ids['username_error_label'].text = capfirst(_('required field'))
+        if not self.email:
+            self.ids['email_error_label'].text = capfirst(_('required field'))
+        if not self.password:
+            self.ids['password_error_label'].text = capfirst(_('required field'))
+        if not self.confirm_password:
+            self.ids['confirm_password_error_label'].text = capfirst(_('required field'))
 
         return success
