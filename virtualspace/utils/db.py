@@ -8,7 +8,7 @@ from kivy.app import App
 from sqlalchemy import MetaData
 from sqlalchemy.orm import sessionmaker
 
-from virtualspace import settings, models
+from virtualspace import models, settings
 from virtualspace.utils.models.bases import BaseModel
 
 

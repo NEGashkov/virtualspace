@@ -2,15 +2,14 @@
 #
 # Distributed under MIT License. See LICENSE file for details.
 from kivy.app import App
-from kivy.uix.screenmanager import ScreenManager, NoTransition
+from kivy.uix.screenmanager import NoTransition, ScreenManager
 
 from virtualspace import settings
 from virtualspace.controllers.menu import MenuScreen
 from virtualspace.controllers.sign_in import SignInScreen
 from virtualspace.controllers.sign_up import SignUpScreen
 from virtualspace.utils.db import get_new_sa_session
-from virtualspace.utils.ui import set_up_kivy_config, set_up_kivy_builder
-
+from virtualspace.utils.ui import set_up_kivy_builder, set_up_kivy_config
 
 set_up_kivy_builder()
 set_up_kivy_config()

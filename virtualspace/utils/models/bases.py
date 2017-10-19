@@ -8,10 +8,10 @@ This module contains very base and generic models for inheritance in the
 future.
 
 """
-from virtualspace.utils.translation import gettext as _
-
 import sqlalchemy as sa
 from sqlalchemy.ext.declarative import declarative_base, declared_attr
+
+from virtualspace.utils.translation import gettext as _
 
 SqlAlchemyBase = declarative_base()
 

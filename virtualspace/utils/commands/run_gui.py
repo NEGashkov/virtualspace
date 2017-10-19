@@ -1,9 +1,8 @@
 # Copyright (c) 2017 Nick Gashkov
 #
 # Distributed under MIT License. See LICENSE file for details.
-from virtualspace.utils.commands.bases import BaseCommand
-
 from virtualspace.controllers.app import VirtualSpaceApp
+from virtualspace.utils.commands.bases import BaseCommand
 
 
 class RunGuiCommand(BaseCommand):

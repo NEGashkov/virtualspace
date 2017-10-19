@@ -19,3 +19,6 @@ messages.pot
 # directories, when defining repository structure.
 !.gitignore
 !.gitkeep
+
+# Keep .editorconfig for file style guidelines.
+!.editorconfig

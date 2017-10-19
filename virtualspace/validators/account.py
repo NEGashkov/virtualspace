@@ -3,7 +3,6 @@
 # Distributed under MIT License. See LICENSE file for details.
 
 from virtualspace.utils.translation import gettext as _
-
 from virtualspace.utils.validators import BaseValidator
 
 

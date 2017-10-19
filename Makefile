@@ -8,3 +8,9 @@ po:
 mo:
 	mkdir -p virtualspace/locale/ru/LC_MESSAGES
 	msgfmt -c -o virtualspace/locale/ru/LC_MESSAGES/messages.mo virtualspace/locale/ru/LC_MESSAGES/messages.po
+
+flake:
+	flake8
+
+isort:
+	isort -rc .

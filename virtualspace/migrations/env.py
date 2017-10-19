@@ -19,7 +19,7 @@ except ImportError as e:
     root = os.path.abspath(os.path.join(current_path, '..', '..'))
     sys.path.append(root)
 
-    from virtualspace import settings, models
+    from virtualspace import models, settings
     from virtualspace.utils.models.bases import BaseModel
     from virtualspace.utils.db import combine_metadata, get_all_models_metadata
 

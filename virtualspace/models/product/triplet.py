@@ -2,11 +2,10 @@
 #
 # Distributed under MIT License. See LICENSE file for details.
 
-from virtualspace.utils.translation import gettext as _
-
 import sqlalchemy as sa
 
 from virtualspace.utils.models.bases import BaseModel
+from virtualspace.utils.translation import gettext as _
 
 
 class Triplet(BaseModel):
