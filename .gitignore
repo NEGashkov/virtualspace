@@ -15,6 +15,9 @@ virtualspace/data/sqlite.db
 # Ignore gettext's POT-file.
 messages.pot
 
+# Ignore Sphinx API docs build
+virtualspace/docs/_build/*
+
 # Keep this .gitignore and .gitkeep files. .gitkeep used for committing empty
 # directories, when defining repository structure.
 !.gitignore

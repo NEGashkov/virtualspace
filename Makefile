@@ -1,4 +1,4 @@
-.PHONY: po mo
+.PHONY: po mo pep sort docs
 
 po:
 	mkdir -p virtualspace/locale/ru/LC_MESSAGES
@@ -9,8 +9,12 @@ mo:
 	mkdir -p virtualspace/locale/ru/LC_MESSAGES
 	msgfmt -c -o virtualspace/locale/ru/LC_MESSAGES/messages.mo virtualspace/locale/ru/LC_MESSAGES/messages.po
 
-flake:
+pep:
 	flake8
 
-isort:
+sort:
 	isort -rc .
+
+docs:
+	sphinx-apidoc -f -o virtualspace/docs/source virtualspace
+	cd virtualspace/docs/ && $(MAKE) html
