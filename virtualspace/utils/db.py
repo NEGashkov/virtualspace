@@ -24,13 +24,11 @@ def get_app_sa_session():
 
 
 def get_all_models_metadata():
-    metadata = []
-
-    for name, cls in inspect.getmembers(models):
-        if inspect.isclass(cls) and issubclass(cls, BaseModel):
-            metadata.append(cls.metadata)
-
-    return metadata
+    return [
+        cls.metadata
+        for name, cls in inspect.getmembers(models)
+        if inspect.isclass(cls) and issubclass(cls, BaseModel)
+    ]
 
 
 def combine_metadata(*args):
