@@ -35,7 +35,3 @@ class Account(BaseModel):
 
     def __str__(self):
         return '<User: {username}>'.format(username=self.username)
-
-    # @validates('username', include_removes=True)
-    # def validate_username(self, key, value, is_remove):
-    #     return self.validator.validate_username(key, value, is_remove)
